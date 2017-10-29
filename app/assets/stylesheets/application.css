@@ -1,0 +1,16 @@
+/* カスタムCSS */
+* {
+  box-sizing: border-box !important;
+}
+
+.img_max {
+  max-width: 72px;
+}
+
+.like-btn {
+  color: #8899a6 !important;
+}
+
+.like-btn-unlike {
+  color: #ff2581 ;
+}

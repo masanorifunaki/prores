@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <h1>プロレスの情報をいち早くお届けします！</h1>
+   
+    <div class="col-md-2">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Yahoo!</h3>
+        </div>
+         <%@elements.each do|element|%>
+        <div class="panel-body">
+          <%= link_to(element.inner_text, element.get_attribute(:href)) %>
+        </div>
+        <%end%>
+      </div>
+      </div>
+
+      <div class="col-md-2">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">新日本プロレス NEW JAPAN PRO-WRESTLING</h3>
+        </div>
+         <%@elements_sp.each do|sp|%>
+        <div class="panel-body">
+          <%= link_to(sp.inner_text, sp.get_attribute(:href)) %>
+        </div>
+        <%end%>
+      </div>
+      </div>
+      
+      <div class="col-md-2">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">全日本プロレス ALL JAPAN PRO-WRESTLING</h3>
+        </div>
+         <%@elements_zp.each do|zp|%>
+        <div class="panel-body">
+          <%= link_to(zp.inner_text, zp.get_attribute(:href)) %>
+        </div>
+        <%end%>
+      </div>
+      </div>
+
+      <div class="col-md-2">
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h3 class="panel-title">NumberWeb プロレス</h3>
+        </div>
+         <%@elements_nm.each do|nm|%>
+        <div class="panel-body">
+          <%= link_to(nm.inner_text, "http://number.bunshun.jp/" + nm.get_attribute(:href)) %>
+        </div>
+        <%end%>
+      </div>
+      </div>
+
+      <div class="col-md-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">新日本プロレスTwitter</h3>
+        </div>
+      <a class="twitter-timeline" data-theme="light" href="https://twitter.com/njpwworld?ref_src=twsrc%5Etfw">Tweets by njpwworld</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+      </div>
+
+  </div>
+</div>

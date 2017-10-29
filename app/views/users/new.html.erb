@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <h2>新規ユーザー登録ページです</h2>
+    <% @user.errors.full_messages.each do |message| %>
+      <div class="bg-danger">
+        <p>
+          <%= message %>
+        </p>
+      </div>
+      <% end %>
+
+        <%= form_tag("/users/create") do %>
+          <form>
+            <div class="form-group">
+              <p>
+                <label>ユーザー名</label>
+              </p>
+              <input class="form-control-static" placeholder="アントニオ猪木" name="name" value="<%= @user.name %>">
+            </div>
+            <div class="form-group">
+              <p>
+                <label>TwitterID</label>
+              </p>
+              <input class="form-control-static" placeholder="twitter" name="twitter" value="<%= @user.twitter %>">
+            </div>
+            <div class="form-group">
+              <p>
+                <label>パスワード</label>
+              </p>
+              <input class="form-control-static" type="password" name="password" value="<%= @user.password %>">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary col-sm-2" type="submit">新規登録</button>
+            </div>
+          </form>
+          <% end %>
+  </div>
+</div>

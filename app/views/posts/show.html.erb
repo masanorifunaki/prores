@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <h1>投稿ページ</h1>
+    <img src="<%= " /user_images/#{@user.image_name} " %>">
+    <%= link_to(@user.name, "/users/#{@user.id}") %>
+      <div class="well well-lg">
+        <p class="lead">
+          <%= @post.content %>
+        </p>
+        <% if Like.find_by(user_id: @current_user.id,post_id: @post.id)%>
+          <p>
+            <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+              <span class="fa fa-heart like-btn-unlike"></span>
+              <%= @likes_count %>
+            <% end %>
+          </p>
+          <% else %>
+            <p>
+              <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+              <span class="fa fa-heart like-btn"></span>
+              <%= @likes_count %>
+              <% end %>
+            </p>
+          <% end %>
+      </div>
+      <p>
+        <small>
+          <%= @post.created_at %>
+        </small>
+      </p>
+
+      <% if @post.user_id == @current_user.id %>
+        <p class="btn btn-default" role="button">
+          <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+        </p>
+        <p class="btn btn-default" role="button">
+          <%= link_to("削除", "/posts/#{@post.id}/destroy",{method: "post"}) %>
+        </p>
+        <% end %>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <h1>ユーザー一覧</h1>
+    <% @users.each do |user| %>
+    <div class="media">
+      <div class="media-left media-middle">
+          <img class="media-object" src="<%= "/user_images/#{user.image_name}" %>">
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">UserName</h4>
+          <p><%= link_to(user.name, "/users/#{user.id}") %><p>
+      </div>
+      <% end %>
+  </div>
+</div>

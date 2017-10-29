@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <h1>編集しよう！</h1>
+    <%= form_tag("/posts/#{@post.id}/update") do %>
+    <% @post.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+    <% end %>
+    <div class="form-group">
+      <textarea class="form-control" name="content" rows="3"><%= @post.content %></textarea>
+    </div>
+    <input class="btn btn-primary" type="submit" value="保存">
+    <% end %>
+  </div>
+</div>

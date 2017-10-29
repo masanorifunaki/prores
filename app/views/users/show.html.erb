@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <h2>UserName：
+            <%= @user.name %>
+        </h2>
+
+        <img class="" src="<%= " /user_images/#{@user.image_name} " %>">
+        <div class="well well-sm">TwitterID：
+            <%= @user.twitter %>
+        </div>
+        <h3>投稿一覧</h3>
+        <ul class="nav nav-tabs nav-justified">
+            <li><%= link_to("投稿", "/users/#{@user.id}") %></li>
+            <li><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
+        </ul>
+        <p></p>
+        <ul class="list-group">
+        <% @user.posts.each do |post| %>
+            <li class="list-group-item"><%= link_to(post.content, "/posts/#{post.id}") %></li>
+        <% end %>
+        </ul>
+
+        <%if @user.id == @current_user.id%>
+            <button class="btn btn-default btn-lg" type="submit">
+                <%= link_to("アカウントを編集する", "/users/#{@user.id}/edit") %>
+            </button>
+        <% end %>
+    </div>
+</div>
